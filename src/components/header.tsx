@@ -98,7 +98,7 @@ export function Header() {
     { label: "Home", id: "home" },
     { label: "SCOPE", id: "scope" },
     { label: "Pathways", id: "pathways" },
-    { label: "Alumni Stories", id: "alumnistories" },
+    { label: "Alumni", id: "alumni" },
     { label: "About", id: "about" },
   ];
 
@@ -178,7 +178,7 @@ export function Header() {
       {/* Fixed Header */}
       <div
         className={`fixed top-0 left-0 w-full z-50 px-96 transition-all duration-100 ease-in-out shadow-md bg-background dark:bg-[#191a1f] ${
-          isScrolled ? "py-3 backdrop-blur-md" : "py-5"
+          isScrolled ? "py-2" : "py-5"
         }`}
       >
         {HeaderContent}
