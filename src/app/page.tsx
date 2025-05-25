@@ -44,7 +44,7 @@ export default function Home() {
           <p className="text-2xl font-semibold text-black">
             Your guide to discovering the right path for your future.
           </p>
-          <p className="text-lg max-w-3xl text-black">
+          <p className="text-lg max-w-2xl text-black">
             Whether you’re exploring career options, preparing for your
             internship, or getting ready for your first job, this site will help
             you take the next step with confidence.
@@ -144,7 +144,7 @@ export default function Home() {
                 target="_blank"
                 className="py-3 px-6 rounded-4xl w-max bg-sky-500 font-fredoka font-bold text-2xl text-white hover:scale-120 transition-all duration-300"
               >
-                Visit SCOPE Now
+                Visit SCOPE
               </Link>
             </div>
           </div>
