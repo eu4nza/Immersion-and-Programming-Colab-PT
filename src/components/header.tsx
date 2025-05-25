@@ -172,7 +172,9 @@ export function Header() {
 
         */}
 
-        <ToggleTheme />
+        <button onMouseEnter={handleMouseLeave}>
+          <ToggleTheme />
+        </button>
       </div>
     </div>
   );
