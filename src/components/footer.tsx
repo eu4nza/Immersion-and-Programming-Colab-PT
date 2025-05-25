@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex flex-col gap-6 max-w-lg">
             <Link href="/" className="flex flex-row items-center gap-4">
               <Image
-                src="/sti_logo.svg"
+                src="images/logo/sti_logo.svg"
                 alt="Footer Logo"
                 priority
                 width={90}

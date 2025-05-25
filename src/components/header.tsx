@@ -109,7 +109,7 @@ export function Header() {
     >
       <Link href="/" className="flex flex-row items-center gap-4">
         <Image
-          src="/sti_logo.svg"
+          src="images/logo/sti_logo.svg"
           alt="Header Logo"
           width={80}
           height={80}
