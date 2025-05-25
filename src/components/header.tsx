@@ -97,8 +97,8 @@ export function Header() {
   const navItems = [
     { label: "Home", id: "home" },
     { label: "SCOPE", id: "scope" },
-    { label: "Pathways", id: "pathways" },
-    { label: "Alumni", id: "alumni" },
+    { label: "Career Camp", id: "career_camp" },
+    { label: "Alumni Stories", id: "alumni_stories" },
     { label: "About", id: "about" },
   ];
 
