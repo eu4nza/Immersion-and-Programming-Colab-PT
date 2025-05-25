@@ -3,11 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { ToggleTheme } from "@/components/ToggleTheme";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoverStyle, setHoverStyle] = useState({});
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -83,29 +85,43 @@ export function Header() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navItems = [
     { label: "Home", id: "home" },
-    { label: "Gallery", id: "gallery" },
-    { label: "Location", id: "location" },
+    { label: "SCOPE", id: "scope" },
+    { label: "Pathways", id: "pathways" },
+    { label: "Alumni Stories", id: "alumnistories" },
     { label: "About", id: "about" },
-    { label: "Contact", id: "contact" },
   ];
 
-  return (
-    <header className="bg-[#0072bc] px-24 py-6 flex justify-between items-center fixed top-0 left-0 w-full z-50 shadow-md ">
-      <Link href="/" className="flex flex-row gap-4">
+  const HeaderContent = (
+    <div
+      className="flex justify-between items-center w-full transition-all duration-300"
+      ref={menuRef}
+    >
+      <Link href="/" className="flex flex-row items-center gap-4">
         <Image
-          src="/sti_logo.png"
+          src="/sti_logo.svg"
           alt="Header Logo"
           width={80}
           height={80}
           priority
         />
-        <p className="text-white text-4xl font-semibold">Career Compass</p>
+        <p className="text-gray-500 dark:text-gray-400 text-3xl font-semibold">
+          Career Compass
+        </p>
       </Link>
 
       <div
-        className="relative inline-flex gap-6 text-lg"
+        className="relative inline-flex justify-center gap-6 text-base font-bold"
         ref={navRef}
         onMouseLeave={handleMouseLeave}
       >
@@ -131,14 +147,42 @@ export function Header() {
                 setHoveredIndex(index);
               }}
               className={`relative z-10 px-3 py-2 rounded-xl transition-colors cursor-pointer ${
-                dimOthers ? "text-white/50" : "text-white"
+                dimOthers
+                  ? "text-gray-500/50"
+                  : "text-gray-500 dark:text-gray-400"
               }`}
             >
               {item.label}
             </button>
           );
         })}
+        <Link
+          href="https://sti.edu/admissions_registration.asp"
+          target="_blank"
+          onMouseEnter={handleMouseLeave}
+          className="flex items-center bg-red-600 text-white py-1 px-3 rounded-sm transition-all duration-300 hover:bg-red-700 hover:text-[#0072bc]"
+        >
+          Apply Now
+        </Link>
+
+        <ToggleTheme />
       </div>
-    </header>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Spacer to prevent layout shift caused by fixed header */}
+      <div className="h-[88px]" />
+
+      {/* Fixed Header */}
+      <div
+        className={`fixed top-0 left-0 w-full z-50 px-96 transition-all duration-100 ease-in-out shadow-md bg-background dark:bg-[#191a1f] ${
+          isScrolled ? "py-3 backdrop-blur-md" : "py-5"
+        }`}
+      >
+        {HeaderContent}
+      </div>
+    </>
   );
 }
