@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Fredoka } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "next-themes";
@@ -9,6 +9,12 @@ const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
+});
+
+const fredoka = Fredoka({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-fredoka",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Header />
-      <body className={`${roboto.variable} antialiased`}>
+      <body className={`${roboto.variable} ${fredoka.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
