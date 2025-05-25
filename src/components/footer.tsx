@@ -4,7 +4,7 @@ import Image from "next/image";
 export function Footer() {
   return (
     <div className="w-full bg-[#0072bc] text-white/80 text-sm">
-      <div className="px-96 pt-16 pb-8">
+      <div className="px-78 pt-16 pb-8">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
           {/* Logo + Description */}
           <div className="flex flex-col gap-6 max-w-lg">
