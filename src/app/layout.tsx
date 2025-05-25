@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
-// Import Roboto font
 const roboto = Roboto({
-  weight: ["300", "400", "500", "700"], // You can adjust weights based on your design
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
 });
@@ -25,7 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Header />
-      <body className={`${roboto.variable} antialiased`}>{children}</body>
+      <body className={`${roboto.variable} antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
       <Footer />
     </html>
   );
