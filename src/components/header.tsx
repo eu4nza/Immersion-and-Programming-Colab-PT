@@ -156,14 +156,21 @@ export function Header() {
             </button>
           );
         })}
+
+        {/*
+        
+        // Ask if adding a apply now button is necessary or not
+
         <Link
-          href="https://sti.edu/admissions_registration.asp"
+          href="https://apply.sti.edu"
           target="_blank"
           onMouseEnter={handleMouseLeave}
           className="flex items-center bg-red-600 text-white py-1 px-3 rounded-sm transition-all duration-300 hover:bg-red-700 hover:text-[#0072bc]"
         >
           Apply Now
         </Link>
+
+        */}
 
         <ToggleTheme />
       </div>
@@ -177,7 +184,7 @@ export function Header() {
 
       {/* Fixed Header */}
       <div
-        className={`fixed top-0 left-0 w-full z-50 px-96 transition-all duration-100 ease-in-out shadow-md bg-background dark:bg-[#191a1f] ${
+        className={`fixed top-0 left-0 w-full z-50 px-78 transition-all duration-100 ease-in-out shadow-md bg-background dark:bg-[#191a1f] ${
           isScrolled ? "py-2" : "py-5"
         }`}
       >
