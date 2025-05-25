@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <section
         id="home"
-        className="w-full bg-[url('images/background/home.png')] bg-no-repeat bg-top bg-cover px-24 py-32"
+        className="w-full bg-[url('/images/background/home.png')] bg-no-repeat bg-top bg-cover px-24 py-32"
       >
         <div className="max-w-6xl mx-auto flex flex-col gap-4 text-[#0072bc]">
           <p className="text-6xl font-bold leading-tight">
