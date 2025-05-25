@@ -12,7 +12,10 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "STI Career Compass",
+  title: {
+    default: "STI Career Compass",
+    template: "%s | STI Career Compass",
+  },
   description:
     "Career Compass is a simple guide that helps students explore fields of study, related careers, and average salaries for better academic and career planning.",
 };
