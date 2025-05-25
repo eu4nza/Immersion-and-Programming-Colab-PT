@@ -306,7 +306,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center py-6">
                 <Link
-                  href="https://scope.sti.edu"
+                  href="https://scope.sti.edu/careercamp23.asp"
                   target="_blank"
                   className="py-3 px-6 rounded-4xl w-max bg-yellow-400 font-fredoka font-bold text-2xl text-black hover:scale-120 transition-all duration-300"
                 >
