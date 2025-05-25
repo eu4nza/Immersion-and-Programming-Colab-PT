@@ -176,7 +176,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col gap-2 items-center justify-center">
               <Link
-                href="https://www.sti.edu/newsarticledetail1.asp?i=Mzgw&p=bWFrZV90aGVfcmlnaHRfY2hvaWNlX3dpdGhfc3RpX2NhcmVlcl9jYW1w"
+                href="https://www.sti.edu/newsarticledetail1.asp?i=Mzgw&p=make_the_right_choice_with_sti_career_camp"
                 target="_blank"
               >
                 <Image
@@ -187,7 +187,7 @@ export default function Home() {
                 />
               </Link>
               <Link
-                href="https://www.sti.edu/newsarticledetail1.asp?i=Mzgw&p=bWFrZV90aGVfcmlnaHRfY2hvaWNlX3dpdGhfc3RpX2NhcmVlcl9jYW1w"
+                href="https://www.sti.edu/newsarticledetail1.asp?i=Mzgw&p=make_the_right_choice_with_sti_career_camp"
                 target="_blank"
                 className="underline"
               >
