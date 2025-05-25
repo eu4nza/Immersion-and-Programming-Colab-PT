@@ -59,19 +59,18 @@ export default function Home() {
       </section>
       <section
         id="scope"
-        className="w-full px-24 py-24 h-auto dark:bg-[url('/images/background/scope_dark.svg')] bg-[url('/images/background/scope.svg')] bg-top bg-repeat bg-[length:500px_500px]"
+        className="w-full px-24 py-24 h-auto dark:bg-[url('/images/scope/scope_background_black.svg')] bg-[url('/images/scope/scope_background_white.svg')] bg-top bg-repeat bg-[length:500px_500px]"
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-6">
             <div className="flex flex-row items-center gap-2 text-6xl font-fredoka font-semibold">
               <Image
-                src="/images/logo/scope_icon.svg"
+                src="/images/scope/scope_icon.svg"
                 width="64"
                 height="32"
-                alt="scope logo"
+                alt="SCOPE Icon"
               />
-              <p>Let’s Start with</p>
-              <p>SCOPE</p>
+              <p>Let’s Start with SCOPE</p>
             </div>
             <p className="text-xl">
               Before diving into possible career pathways, it’s important to
@@ -99,10 +98,10 @@ export default function Home() {
             {/* Should this have a top padding of 24 (pt-24) or not? Ask if it is better or not. */}
             <div className="flex flex-row items-center gap-2 text-6xl font-fredoka font-semibold">
               <Image
-                src="/images/logo/scope_magnify_icon.webp"
+                src="/images/scope/scope_magnify_icon.webp"
                 width="64"
                 height="32"
-                alt="scope magnify logo"
+                alt="SCOPE Magnify logo"
               />
               <p>What You Can Do with SCOPE:</p>
             </div>
@@ -144,14 +143,189 @@ export default function Home() {
                 target="_blank"
                 className="py-3 px-6 rounded-4xl w-max bg-sky-500 font-fredoka font-bold text-2xl text-white hover:scale-120 transition-all duration-300"
               >
-                Visit SCOPE
+                Visit SCOPE Now
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="h-[1080]"></section>
+      <section
+        id="career_camp"
+        className="w-full px-24 py-24 min-h-screen bg-[url('/images/career_camp/career_camp_background.webp')] bg-cover bg-center bg-no-repeat"
+      >
+        <div className="max-w-7xl mx-auto bg-background px-12 py-12 rounded-xl">
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-row items-center gap-2 text-6xl font-fredoka font-semibold">
+              <Image
+                src="/images/career_camp/career_camp_logo.webp"
+                width="128"
+                height="32"
+                alt="Career Camp logo"
+              />
+              <p>Next Stop: Career Camp</p>
+            </div>
+            <p className="text-xl">
+              You’ve explored yourself with <b>SCOPE</b>. <br /> Now it’s time
+              to explore the real world.
+            </p>
+            <p className="text-xl">
+              STI’s <b>Career Camp</b> gives you hands-on, immersive experiences
+              that simulate real careers <br /> so you can make smarter, more
+              confident choices for your future.
+            </p>
+            <div className="flex flex-col gap-2 items-center justify-center">
+              <Link
+                href="https://www.sti.edu/newsarticledetail1.asp?i=Mzgw&p=bWFrZV90aGVfcmlnaHRfY2hvaWNlX3dpdGhfc3RpX2NhcmVlcl9jYW1w"
+                target="_blank"
+              >
+                <Image
+                  src="/images/career_camp/career_camp_header.jpg"
+                  height="100"
+                  width="900"
+                  alt="Career Camp Header"
+                />
+              </Link>
+              <Link
+                href="https://www.sti.edu/newsarticledetail1.asp?i=Mzgw&p=bWFrZV90aGVfcmlnaHRfY2hvaWNlX3dpdGhfc3RpX2NhcmVlcl9jYW1w"
+                target="_blank"
+                className="underline"
+              >
+                Visit the Article
+              </Link>
+            </div>
+            <div className="flex flex-row items-center gap-2 text-6xl font-fredoka font-semibold">
+              <Image
+                src="/images/career_camp/career_camp_camps.webp"
+                height="64"
+                width="128"
+                alt="SCOPE Magnify logo"
+              />
+              <p>What You Can Do with Career Camp:</p>
+            </div>
+            <div className="flex flex-col gap-3 text-xl">
+              <div className="flex flex-row gap-2">
+                <>
+                  {/* Light mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_bakers_black.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Bakers (Black)"
+                    className="block dark:hidden"
+                  />
+
+                  {/* Dark mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_bakers_white.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Bakers (White)"
+                    className="hidden dark:block"
+                  />
+                </>
+                <p>
+                  <b>Bake and Decorate:</b> Create delicious pastries while
+                  exploring basic baking techniques and design.
+                </p>
+              </div>
+              <div className="flex flex-row gap-2">
+                <>
+                  {/* Light mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_gamedev_black.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Game Dev (Black)"
+                    className="block dark:hidden"
+                  />
+
+                  {/* Dark mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_gamedev_white.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Game Dev (White)"
+                    className="hidden dark:block"
+                  />
+                </>
+                <p>
+                  <b>Develop a Game:</b> Try coding, game design, and
+                  storytelling using beginner-friendly tools and software.
+                </p>
+              </div>
+              <div className="flex flex-row gap-2">
+                <>
+                  {/* Light mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_photographer_black.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Game Dev (Black)"
+                    className="block dark:hidden"
+                  />
+
+                  {/* Dark mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_photographer_white.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Photographer (White)"
+                    className="hidden dark:block"
+                  />
+                </>
+                <p>
+                  <b>Shoot with Your Phone:</b> Capture and edit eye-catching
+                  photos using your mobile device and creative techniques.
+                </p>
+              </div>
+              <div className="flex flex-row gap-2">
+                <>
+                  {/* Light mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_entrep_black.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Entrepreneur (Black)"
+                    className="block dark:hidden"
+                  />
+
+                  {/* Dark mode icon */}
+                  <Image
+                    src="/images/career_camp/career_camp_icon_entrep_white.webp"
+                    height="24"
+                    width="24"
+                    alt="Career Camp Icon Entrepreneur (White)"
+                    className="hidden dark:block"
+                  />
+                </>
+                <p>
+                  <b>Start a Business:</b> Build a business idea, create a basic
+                  plan, and pitch it like a young entrepreneur.
+                </p>
+              </div>
+              <div className="flex justify-center py-6">
+                <Link
+                  href="https://scope.sti.edu"
+                  target="_blank"
+                  className="py-3 px-6 rounded-4xl w-max bg-yellow-400 font-fredoka font-bold text-2xl text-black hover:scale-120 transition-all duration-300"
+                >
+                  Visit Career Camp Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="alumni_stories" className="h-[1080] py-24 px-24">
+        {" "}
+        Alumni Stories Section (Unfinished){" "}
+      </section>
+      <section id="about" className="h-[1080] py-24 px-24">
+        {" "}
+        About Section (Unfinished){" "}
+      </section>
     </main>
   );
 }
