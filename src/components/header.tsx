@@ -4,12 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ToggleTheme } from "@/components/ToggleTheme";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoverStyle, setHoverStyle] = useState({});
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -19,7 +22,10 @@ export function Header() {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const offset = id === "home" ? -100 : 0; // Adjust -100 as needed
+      const top = section.getBoundingClientRect().top + window.scrollY + offset;
+
+      window.scrollTo({ top, behavior: "smooth" });
       setIsOpen(false);
       history.replaceState(null, "", "/");
     }
@@ -103,25 +109,28 @@ export function Header() {
   ];
 
   const HeaderContent = (
-    <div
-      className="flex justify-between items-center w-full transition-all duration-300"
-      ref={menuRef}
-    >
-      <Link href="/" className="flex flex-row items-center gap-4">
+    <div className="flex justify-between items-center w-full" ref={menuRef}>
+      <Link
+        href="/"
+        className={`flex flex-row items-center gap-4 transition-all duration-100 ${
+          isScrolled ? "scale-80" : "scale-100"
+        }`}
+      >
         <Image
           src="images/logo/sti_logo.svg"
           alt="Header Logo"
           width={80}
           height={80}
           priority
+          className="sm:w-[80px] w-[60px]"
         />
-        <p className="text-gray-500 dark:text-gray-400 text-3xl font-semibold">
+        <p className="text-gray-500 dark:text-gray-400 sm:text-3xl text-xl font-semibold">
           Career Compass
         </p>
       </Link>
 
       <div
-        className="relative inline-flex justify-center gap-6 text-base font-bold"
+        className="hidden lg:inline-flex relative justify-center gap-6 text-base font-bold"
         ref={navRef}
         onMouseLeave={handleMouseLeave}
       >
@@ -157,21 +166,35 @@ export function Header() {
           );
         })}
 
-        {/*
-        
-        // Ask if adding a apply now button is necessary or not
-
-        <Link
-          href="https://apply.sti.edu"
-          target="_blank"
-          onMouseEnter={handleMouseLeave}
-          className="flex items-center bg-red-600 text-white py-1 px-3 rounded-sm transition-all duration-300 hover:bg-red-700 hover:text-[#0072bc]"
-        >
-          Apply Now
-        </Link>
-
-        */}
-
+        <button onMouseEnter={handleMouseLeave}>
+          <ToggleTheme />
+        </button>
+      </div>
+      <div className="lg:hidden flex flex-row gap-2">
+        <div>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => {
+              setAnimate(true);
+              setTimeout(() => setAnimate(false), 100);
+              setIsOpen(!isOpen);
+            }}
+            aria-label="Toggle menu"
+          >
+            <div
+              className={`transition-transform duration-300 ease-in-out ${
+                animate ? "scale-50" : "scale-100"
+              }`}
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </div>
+          </Button>
+        </div>
         <button onMouseEnter={handleMouseLeave}>
           <ToggleTheme />
         </button>
@@ -182,15 +205,35 @@ export function Header() {
   return (
     <>
       {/* Spacer to prevent layout shift caused by fixed header */}
-      <div className="h-[88px]" />
+      <div className="2xl:h-[88px] h-[76px]" />
 
       {/* Fixed Header */}
       <div
-        className={`fixed top-0 left-0 w-full z-50 px-78 transition-all duration-100 ease-in-out shadow-md bg-background dark:bg-[#191a1f] ${
-          isScrolled ? "py-2" : "py-5"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-100 shadow-xl bg-background dark:bg-[#191a1f] ${
+          isScrolled ? "2xl:px-70 px-2 py-1" : "2xl:px-78 px-4 py-5"
         }`}
       >
         {HeaderContent}
+      </div>
+
+      {/* Mobile Menu Popup */}
+      <div
+        className={`lg:hidden fixed w-full z-40 bg-background dark:bg-[#191a1f] border-t border-border shadow-md transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+        style={{ top: isScrolled ? "44px" : "76px" }} // Adjust if your header height is different
+      >
+        <div className="flex flex-col px-4 py-4 space-y-3">
+          {navItems.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => handleNavigation(item.id)}
+              className="text-left text-gray-700 dark:text-gray-300 font-medium text-base px-2 py-2 rounded-md hover:bg-muted transition-colors"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
       </div>
     </>
   );
