@@ -5,9 +5,9 @@ export default function CareerCampSection() {
   return (
     <section
       id="career_camp"
-      className="w-full 2xl:px-24 px-4 2xl:py-24 py-18 min-h-screen bg-[url('/images/career_camp/career_camp_background.webp')] bg-cover bg-center bg-no-repeat"
+      className="w-full 2xl:px-24 px-4 2xl:py-24 py-16 min-h-screen bg-[url('/images/career_camp/career_camp_background.webp')] bg-cover bg-center bg-no-repeat"
     >
-      <div className="max-w-7xl mx-auto bg-background dark:bg-[#191a1f] px-12 py-12 rounded-xl">
+      <div className="max-w-7xl mx-auto bg-background dark:bg-[#191a1f] py-6 px-6 2xl:py-12 2xl:px-12 rounded-xl">
         <div className="flex flex-col gap-6">
           <div className="flex flex-row items-center gap-2">
             <Image
