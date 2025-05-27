@@ -219,10 +219,10 @@ export function Header() {
 
       {/* Mobile Menu Popup */}
       <div
-        className={`lg:hidden fixed w-full z-40 bg-background dark:bg-[#191a1f] border-t border-border shadow-md transition-all duration-300 ease-in-out overflow-hidden ${
+        className={`lg:hidden fixed w-full z-40 bg-background dark:bg-[#191a1f] border-t border-border shadow-md transition-all duration-100 ease-in-out overflow-hidden ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
-        style={{ top: isScrolled ? "44px" : "76px" }} // Adjust if your header height is different
+        style={{ top: isScrolled ? "44px" : "76px" }}
       >
         <div className="flex flex-col px-4 py-4 space-y-3">
           {navItems.map((item, index) => (
