@@ -27,6 +27,7 @@ export default function AlumniStoriesSection() {
                 src="/images/alumni_stories/alumni_banner.webp"
                 height="100"
                 width="900"
+                loading="eager"
                 alt="Alumni Banner"
               />
             </Link>

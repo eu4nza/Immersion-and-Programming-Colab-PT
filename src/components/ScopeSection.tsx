@@ -16,6 +16,7 @@ export default function ScopeSection() {
               width="64"
               height="32"
               alt="SCOPE Icon"
+              loading="eager"
               className="w-[32px] lg:w-[48px] 2xl:w-[64px]"
             />
             <p className="text-3xl lg:text-5xl 2xl:text-6xl font-fredoka font-semibold">
@@ -51,6 +52,7 @@ export default function ScopeSection() {
               width="64"
               height="32"
               alt="SCOPE Magnify logo"
+              loading="eager"
               className="w-[32px] lg:w-[48px] 2xl:w-[64px]"
             />
             <p className="text-2xl lg:text-4xl 2xl:text-6xl font-fredoka font-semibold">

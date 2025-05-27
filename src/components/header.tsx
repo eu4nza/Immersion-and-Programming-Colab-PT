@@ -122,6 +122,7 @@ export function Header() {
           width={80}
           height={80}
           priority
+          loading="eager"
           className="sm:w-[80px] w-[60px]"
         />
         <p className="text-gray-500 dark:text-gray-400 sm:text-3xl text-xl font-semibold">

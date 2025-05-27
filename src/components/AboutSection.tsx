@@ -44,6 +44,7 @@ export default function AboutSection() {
                 src="/images/about/about_banner.webp"
                 height="100"
                 width="800"
+                loading="eager"
                 alt="About Banner"
               />
             </Link>
@@ -84,6 +85,7 @@ export default function AboutSection() {
                 src="/images/about/jhustin_euan_cortez_chua.webp"
                 height={250}
                 width={250}
+                loading="eager"
                 alt="Picture of Jhustin Euan C. Chua"
                 className="rounded-full object-cover shadow-xl w-[150px] md:[200px] 2xl:w-[250px]"
               />
@@ -98,6 +100,7 @@ export default function AboutSection() {
                 src="/images/about/sean_geniel_dinglasan_garcia.webp"
                 height={250}
                 width={250}
+                loading="eager"
                 alt="Picture of Sean Geniel D. Garcia"
                 className="rounded-full object-cover shadow-xl w-[150px] md:[200px] 2xl:w-[250px]"
               />

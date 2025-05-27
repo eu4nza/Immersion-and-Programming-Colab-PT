@@ -14,6 +14,7 @@ export default function CareerCampSection() {
               src="/images/career_camp/career_camp_logo.webp"
               width="128"
               height="32"
+              loading="eager"
               alt="Career Camp Logo"
               className="w-[64px] lg:w-[96px] 2xl:w-[128px]"
             />
@@ -39,6 +40,7 @@ export default function CareerCampSection() {
                 src="/images/career_camp/career_camp_banner.webp"
                 height="100"
                 width="900"
+                loading="eager"
                 alt="Career Camp Banner"
               />
             </Link>
@@ -55,6 +57,7 @@ export default function CareerCampSection() {
               src="/images/career_camp/career_camp_camps.webp"
               height="64"
               width="128"
+              loading="eager"
               alt="SCOPE Magnify logo"
               className="w-[64px] lg:w-[96px] 2xl:w-[128px]"
             />
@@ -70,6 +73,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_bakers_black.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Bakers (Black)"
                   className="block dark:hidden h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
@@ -79,6 +83,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_bakers_white.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Bakers (White)"
                   className="hidden dark:block h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
@@ -95,6 +100,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_gamedev_black.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Game Dev (Black)"
                   className="block dark:hidden h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
@@ -104,6 +110,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_gamedev_white.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Game Dev (White)"
                   className="hidden dark:block h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
@@ -120,6 +127,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_photographer_black.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Game Dev (Black)"
                   className="block dark:hidden h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
@@ -129,6 +137,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_photographer_white.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Photographer (White)"
                   className="hidden dark:block h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
@@ -145,6 +154,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_entrep_black.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Entrepreneur (Black)"
                   className="block dark:hidden h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
@@ -154,6 +164,7 @@ export default function CareerCampSection() {
                   src="/images/career_camp/career_camp_icon_entrep_white.webp"
                   height="24"
                   width="24"
+                  loading="eager"
                   alt="Career Camp Icon Entrepreneur (White)"
                   className="hidden dark:block h-[24px] w-[24px] 2xl:h-[24px] 2xl:w-[24px]"
                 />
