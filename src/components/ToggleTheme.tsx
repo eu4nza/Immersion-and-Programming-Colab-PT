@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 
 export function ToggleTheme() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null); // null means not yet initialized
   const [animate, setAnimate] = useState(false);
 
+  // Initialize theme from localStorage or system preference
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
@@ -14,7 +15,9 @@ export function ToggleTheme() {
     setIsDarkMode(savedTheme === "dark" || (!savedTheme && prefersDark));
   }, []);
 
+  // Apply theme to document and persist it
   useEffect(() => {
+    if (isDarkMode === null) return; // Skip until initialized
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -25,11 +28,13 @@ export function ToggleTheme() {
   }, [isDarkMode]);
 
   const toggleTheme = () => {
-    // trigger scale animation
     setAnimate(true);
     setTimeout(() => setAnimate(false), 100);
     setIsDarkMode((prev) => !prev);
   };
+
+  // Avoid showing incorrect icon until theme is determined
+  if (isDarkMode === null) return null;
 
   return (
     <button
@@ -37,9 +42,9 @@ export function ToggleTheme() {
       className={`
         w-8 rounded-full
         flex items-center justify-center
-        transition-all duration-500 ease-in-out
         cursor-pointer
         hover:scale-120
+        transition-transform
       `}
     >
       <div
