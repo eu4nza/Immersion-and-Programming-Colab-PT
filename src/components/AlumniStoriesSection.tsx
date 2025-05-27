@@ -6,7 +6,7 @@ export default function AlumniStoriesSection() {
   return (
     <section
       id="alumni_stories"
-      className="2xl:px-24 px-4 2xl:py-24 py-18 bg-[#fff200] dark:bg-[#ccc200] text-[#0072bc] dark:text-black"
+      className="2xl:px-24 px-4 2xl:py-24 py-16 bg-[#fff200] dark:bg-[#ccc200] text-[#0072bc] dark:text-black"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col gap-6">

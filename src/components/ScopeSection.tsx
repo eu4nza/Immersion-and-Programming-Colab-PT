@@ -6,7 +6,7 @@ export default function ScopeSection() {
   return (
     <section
       id="scope"
-      className="w-full 2xl:px-24 px-4 2xl:py-24 py-18 h-auto dark:bg-[#191a1f] dark:bg-[url('/images/scope/scope_background_black.svg')] bg-[url('/images/scope/scope_background_white.svg')] bg-top bg-repeat bg-[length:500px_500px]"
+      className="w-full 2xl:px-24 px-4 2xl:py-24 py-16 h-auto dark:bg-[#191a1f] dark:bg-[url('/images/scope/scope_background_black.svg')] bg-[url('/images/scope/scope_background_white.svg')] bg-top bg-repeat bg-[length:500px_500px]"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col gap-6">

@@ -19,7 +19,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="2xl:px-24 px-4 2xl:py-24 py-18 dark:bg-[#191a1f]"
+      className="2xl:px-24 px-4 2xl:py-24 py-16 dark:bg-[#191a1f]"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col gap-6">
