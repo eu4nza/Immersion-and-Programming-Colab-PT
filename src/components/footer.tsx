@@ -86,7 +86,7 @@ export function Footer() {
         <div className="flex flex-col 2xl:flex-row gap-12">
           {/* Logo + Description */}
           <div className="flex flex-col gap-6 max-w-lg">
-            <Link href="/" className="flex flex-row items-center gap-4">
+            <Link href="/" className="flex flex-row items-center gap-4 w-max">
               <Image
                 src="images/logo/sti_logo.svg"
                 alt="Header Logo"
@@ -95,7 +95,7 @@ export function Footer() {
                 loading="eager"
                 className="sm:w-[80px] w-[60px]"
               />
-              <p className="text-gray-500 dark:text-gray-400 sm:text-3xl text-xl font-semibold">
+              <p className="text-gray-300 dark:text-gray-400 sm:text-3xl text-xl font-semibold">
                 Career Compass
               </p>
             </Link>
@@ -112,7 +112,7 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <p className="py-3 text-lg font-semibold">Navigation</p>
+            <p className="py-3 text-lg font-semibold text-white">Navigation</p>
             <div className="flex flex-col justify-start gap-2">
               {navItems.map((item, index) => {
                 return (
