@@ -229,7 +229,7 @@ export function Header() {
             <button
               key={index}
               onClick={() => handleNavigation(item.id)}
-              className="text-left text-gray-700 dark:text-gray-300 font-medium text-base px-2 py-2 rounded-md hover:bg-muted transition-colors"
+              className="text-left text-gray-500 dark:text-gray-400 text-base font-bold px-2 py-2 rounded-md"
             >
               {item.label}
             </button>
