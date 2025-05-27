@@ -94,11 +94,16 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Automatically close the mobile menu when scrolling
+      if (isOpen) {
+        setIsOpen(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isOpen]); // Include isOpen in the dependency array
 
   const navItems = [
     { label: "Home", id: "home" },
