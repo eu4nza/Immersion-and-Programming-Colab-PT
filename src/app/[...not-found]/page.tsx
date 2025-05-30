@@ -21,7 +21,7 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-      <div className="2xl:h-[88px] h-[76px]" />
+      <div className="2xl:h-[79px] h-[67px]" />
     </div>
   );
 }
