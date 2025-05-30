@@ -96,13 +96,17 @@ export function Header() {
 
       // Automatically close the mobile menu when scrolling
       if (isOpen) {
+        // Trigger animate effect before closing
+        setAnimate(true);
+        setTimeout(() => setAnimate(false), 100);
+
         setIsOpen(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isOpen]); // Include isOpen in the dependency array
+  }, [isOpen]); // include isOpen
 
   const navItems = [
     { label: "Home", id: "home" },
@@ -119,7 +123,7 @@ export function Header() {
     >
       <Link href="/" className="flex items-center">
         <div
-          className={`flex flex-row items-center gap-4 transition-transform duration-100 origin-left ${
+          className={`flex flex-row items-center gap-4 transition-all duration-100 origin-left ${
             isScrolled ? "scale-80" : "scale-100"
           }`}
         >
@@ -145,7 +149,7 @@ export function Header() {
         >
           {/* Hover background */}
           <div
-            className="absolute transition-all duration-300 pointer-events-none"
+            className="absolute transition-color duration-300 pointer-events-none"
             style={{
               ...hoverStyle,
               position: "absolute",
@@ -175,33 +179,24 @@ export function Header() {
             );
           })}
         </div>
-        <div className="lg:hidden flex flex-row gap-2">
-          <div>
-            <button
-              onClick={() => {
-                setAnimate(true);
-                setTimeout(() => setAnimate(false), 100);
-                setIsOpen(!isOpen);
-              }}
-              className="flex items-center"
-            >
-              <div
-                className={`transition-transform duration-300 ease-in-out ${
-                  animate ? "scale-50" : "scale-100"
-                }`}
-              >
-                {isOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </div>
-            </button>
+        <button
+          onClick={() => {
+            setAnimate(true);
+            setTimeout(() => setAnimate(false), 100);
+            setIsOpen(!isOpen);
+          }}
+          className="lg:hidden flex items-center"
+        >
+          <div
+            className={`transition-transform duration-300 ease-in-out ${
+              animate ? "scale-50" : "scale-100"
+            }`}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </div>
-        </div>
-        <button onMouseEnter={handleMouseLeave}>
-          <ToggleTheme />
         </button>
+
+        <ToggleTheme />
       </div>
     </div>
   );
@@ -209,7 +204,7 @@ export function Header() {
   return (
     <>
       {/* Spacer to prevent layout shift caused by fixed header */}
-      <div className="2xl:h-[88px] h-[76px]" />
+      <div className="2xl:h-[79px] h-[67px]" />
 
       {/* Fixed Header */}
       <div
@@ -222,10 +217,17 @@ export function Header() {
 
       {/* Mobile Menu Popup */}
       <div
-        className={`lg:hidden fixed w-full z-40 bg-background dark:bg-[#191a1f] border-t border-border shadow-md transition-all duration-100 ease-in-out overflow-hidden ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-        style={{ top: isScrolled ? "37px" : "76px" }}
+        className={`
+    lg:hidden fixed w-full z-40 bg-background dark:bg-[#191a1f] border-t border-border shadow-xl
+   transition-all duration-300 ease-in-out overflow-hidden
+    transform
+    ${
+      isOpen
+        ? "max-h-[500px] opacity-100 translate-y-0"
+        : "max-h-0 opacity-0 -translate-y-10"
+    }
+  `}
+        style={{ top: isScrolled ? "43px" : "67px" }}
       >
         <div className="flex flex-col px-4 py-4 space-y-3">
           {navItems.map((item, index) => (
