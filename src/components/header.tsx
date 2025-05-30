@@ -113,27 +113,30 @@ export function Header() {
   ];
 
   const HeaderContent = (
-    <div className="flex justify-between items-center w-full" ref={menuRef}>
-      <Link
-        href="/"
-        className={`flex flex-row items-center gap-4 transition-all duration-100 ${
-          isScrolled ? "scale-80" : "scale-100"
-        }`}
-      >
-        <Image
-          src="images/logo/sti_logo.svg"
-          alt="Header Logo"
-          width={80}
-          height={80}
-          priority
-          loading="eager"
-          className="sm:w-[80px] w-[60px]"
-        />
-        <p className="text-gray-500 dark:text-gray-400 sm:text-3xl text-xl font-semibold">
-          Career Compass
-        </p>
+    <div
+      className="flex justify-between items-center max-w-7xl mx-auto"
+      ref={menuRef}
+    >
+      <Link href="/" className="flex items-center">
+        <div
+          className={`flex flex-row items-center gap-4 transition-transform duration-100 origin-left ${
+            isScrolled ? "scale-80" : "scale-100"
+          }`}
+        >
+          <Image
+            src="images/logo/sti_logo.svg"
+            alt="Header Logo"
+            width={80}
+            height={80}
+            priority
+            loading="eager"
+            className="sm:w-[80px] w-[60px]"
+          />
+          <p className="text-gray-500 dark:text-gray-400 sm:text-3xl text-xl font-semibold">
+            Career Compass
+          </p>
+        </div>
       </Link>
-
       <div className="flex flex-row items-center gap-4">
         <div
           className="hidden lg:inline-flex relative justify-center gap-6 text-base font-bold"
@@ -210,8 +213,8 @@ export function Header() {
 
       {/* Fixed Header */}
       <div
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-100 shadow-xl bg-background dark:bg-[#191a1f] ${
-          isScrolled ? "2xl:px-70 px-2 py-1" : "2xl:px-78 px-4 py-5"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-100 shadow-xl bg-background dark:bg-[#191a1f] 2xl:px-0 px-4 ${
+          isScrolled ? "py-1" : "py-5"
         }`}
       >
         {HeaderContent}
@@ -222,7 +225,7 @@ export function Header() {
         className={`lg:hidden fixed w-full z-40 bg-background dark:bg-[#191a1f] border-t border-border shadow-md transition-all duration-100 ease-in-out overflow-hidden ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
-        style={{ top: isScrolled ? "44px" : "76px" }}
+        style={{ top: isScrolled ? "37px" : "76px" }}
       >
         <div className="flex flex-col px-4 py-4 space-y-3">
           {navItems.map((item, index) => (
