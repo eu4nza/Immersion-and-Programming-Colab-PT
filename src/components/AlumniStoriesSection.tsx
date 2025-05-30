@@ -53,7 +53,7 @@ export default function AlumniStoriesSection() {
           </p>
           <div className="flex justify-center py-6">
             <Link
-              href="https://alumni.sti.edu/"
+              href="https://www.sti.edu/students_alumni_archive.asp"
               target="_blank"
               className="py-3 px-6 rounded-4xl w-max bg-[#0072bc] font-bold text-lg lg:text-xl 2xl:text-2xl text-background hover:scale-120 transition-all duration-300"
             >
