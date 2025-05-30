@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ToggleTheme } from "@/components/ToggleTheme";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -135,71 +134,67 @@ export function Header() {
         </p>
       </Link>
 
-      <div
-        className="hidden lg:inline-flex relative justify-center gap-6 text-base font-bold"
-        ref={navRef}
-        onMouseLeave={handleMouseLeave}
-      >
-        {/* Hover background */}
+      <div className="flex flex-row items-center gap-4">
         <div
-          className="absolute transition-all duration-300 pointer-events-none"
-          style={{
-            ...hoverStyle,
-            position: "absolute",
-            transitionProperty: "all",
-          }}
-        />
-        {navItems.map((item, index) => {
-          const isHovered = hoveredIndex === index;
-          const dimOthers = hoveredIndex !== null && !isHovered;
-
-          return (
-            <button
-              key={index}
-              onClick={() => handleNavigation(item.id)}
-              onMouseEnter={(e) => {
-                handleHover(e);
-                setHoveredIndex(index);
-              }}
-              className={`relative z-10 px-3 py-2 rounded-xl transition-colors cursor-pointer ${
-                dimOthers
-                  ? "text-gray-500/50"
-                  : "text-gray-500 dark:text-gray-400"
-              }`}
-            >
-              {item.label}
-            </button>
-          );
-        })}
-
-        <button onMouseEnter={handleMouseLeave}>
-          <ToggleTheme />
-        </button>
-      </div>
-      <div className="lg:hidden flex flex-row gap-2">
-        <div>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => {
-              setAnimate(true);
-              setTimeout(() => setAnimate(false), 100);
-              setIsOpen(!isOpen);
+          className="hidden lg:inline-flex relative justify-center gap-6 text-base font-bold"
+          ref={navRef}
+          onMouseLeave={handleMouseLeave}
+        >
+          {/* Hover background */}
+          <div
+            className="absolute transition-all duration-300 pointer-events-none"
+            style={{
+              ...hoverStyle,
+              position: "absolute",
+              transitionProperty: "all",
             }}
-            aria-label="Toggle menu"
-          >
-            <div
-              className={`transition-transform duration-300 ease-in-out ${
-                animate ? "scale-50" : "scale-100"
-              }`}
+          />
+          {navItems.map((item, index) => {
+            const isHovered = hoveredIndex === index;
+            const dimOthers = hoveredIndex !== null && !isHovered;
+
+            return (
+              <button
+                key={index}
+                onClick={() => handleNavigation(item.id)}
+                onMouseEnter={(e) => {
+                  handleHover(e);
+                  setHoveredIndex(index);
+                }}
+                className={`relative z-10 px-3 py-2 rounded-xl transition-colors cursor-pointer ${
+                  dimOthers
+                    ? "text-gray-500/50"
+                    : "text-gray-500 dark:text-gray-400"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+        <div className="lg:hidden flex flex-row gap-2">
+          <div>
+            <button
+              onClick={() => {
+                setAnimate(true);
+                setTimeout(() => setAnimate(false), 100);
+                setIsOpen(!isOpen);
+              }}
+              className="flex items-center"
             >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </div>
-          </Button>
+              <div
+                className={`transition-transform duration-300 ease-in-out ${
+                  animate ? "scale-50" : "scale-100"
+                }`}
+              >
+                {isOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </div>
+            </button>
+          </div>
         </div>
         <button onMouseEnter={handleMouseLeave}>
           <ToggleTheme />
