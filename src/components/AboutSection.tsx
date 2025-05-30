@@ -117,46 +117,46 @@ export default function AboutSection() {
               Technologies Used
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="py-3 lg:py-12 flex flex-wrap justify-center gap-8">
             {/* React */}
             <div className="flex flex-col gap-2 items-center">
-              <RiReactjsFill className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <RiReactjsFill className="h-8 w-8 2xl:h-16 2xl:w-16 text-cyan-400" />
               <p className="lg:text-lg 2xl:text-xl">React.js</p>
             </div>
 
             {/* Next.js */}
             <div className="flex flex-col gap-2 items-center">
-              <RiNextjsFill className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <RiNextjsFill className="h-8 w-8 2xl:h-16 2xl:w-16 text-black dark:text-white" />
               <p className="lg:text-lg 2xl:text-xl">Next.js</p>
             </div>
 
             {/* TypeScript */}
             <div className="flex flex-col gap-2 items-center">
-              <BiLogoTypescript className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <BiLogoTypescript className="h-8 w-8 2xl:h-16 2xl:w-16 text-blue-600" />
               <p className="lg:text-lg 2xl:text-xl">TypeScript</p>
             </div>
 
             {/* Tailwind CSS */}
             <div className="flex flex-col gap-2 items-center">
-              <RiTailwindCssFill className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <RiTailwindCssFill className="h-8 w-8 2xl:h-16 2xl:w-16 text-sky-400" />
               <p className="lg:text-lg 2xl:text-xl">Tailwind CSS</p>
             </div>
 
             {/* VS Code */}
             <div className="flex flex-col gap-2 items-center">
-              <BiLogoVisualStudio className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <BiLogoVisualStudio className="h-8 w-8 2xl:h-16 2xl:w-16 text-blue-500" />
               <p className="lg:text-lg 2xl:text-xl">VS Code</p>
             </div>
 
             {/* Vercel */}
             <div className="flex flex-col gap-2 items-center">
-              <RiVercelFill className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <RiVercelFill className="h-8 w-8 2xl:h-16 2xl:w-16 text-black dark:text-white" />
               <p className="lg:text-lg 2xl:text-xl">Vercel</p>
             </div>
 
             {/* Photoshop (optional) */}
             <div className="flex flex-col gap-2 items-center">
-              <SiAdobephotoshop className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <SiAdobephotoshop className="h-8 w-8 2xl:h-16 2xl:w-16 text-blue-800" />
               <p className="lg:text-lg 2xl:text-xl">Photoshop</p>
             </div>
 
@@ -174,10 +174,18 @@ export default function AboutSection() {
 
             {/* Lucide Icons */}
             <div className="flex flex-col gap-2 items-center">
-              <SiLucide className="h-8 w-8 2xl:h-16 2xl:w-16" />
+              <SiLucide className="h-8 w-8 2xl:h-16 2xl:w-16 text-red-400" />
               <p className="lg:text-lg 2xl:text-xl">Lucide</p>
             </div>
           </div>
+
+          <p className="lg:text-lg 2xl:text-xl">
+            The following technologies listed are free to use and anyone can
+            learn from it!
+            <br />
+            We've utilized these technologies in order to avoid complexity and
+            improve stability.
+          </p>
           <p className="lg:text-lg 2xl:text-xl">
             <i>
               Thank you for exploring Career Compass. <br />
