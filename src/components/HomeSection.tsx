@@ -40,7 +40,7 @@ export default function HomeSection() {
           <p className="2xl:text-2xl xl:text-xl text-lg font-semibold text-black">
             Your guide to discovering the right path for your future.
           </p>
-          <p className="2xl:text-lg xl:text-base text-sm 2xl:max-w-2xl max-w-xl text-black">
+          <p className="2xl:text-lg xl:text-base text-sm 2xl:max-w-2xl xl:max-w-xl max-w-lg text-black">
             Whether you’re exploring career options, preparing for your
             internship, or getting ready for your first job, this site will help
             you take the next step with confidence.
