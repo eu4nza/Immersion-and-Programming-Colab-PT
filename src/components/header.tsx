@@ -214,7 +214,7 @@ export function Header() {
       {/* Fixed Header */}
       <div
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-100 shadow-xl bg-background dark:bg-[#191a1f] 2xl:px-0 px-4 ${
-          isScrolled ? "py-1" : "py-5"
+          isScrolled ? "py-1" : "py-4"
         }`}
       >
         {HeaderContent}
