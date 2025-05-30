@@ -81,8 +81,8 @@ export function Footer() {
   ];
 
   return (
-    <div className="w-full bg-[#00306e] dark:bg-black text-white/80 text-sm">
-      <div className="2xl:px-78 px-4 2xl:pt-16 pt-8 pb-8">
+    <div className="2xl:px-24 px-4 w-full bg-[#00306e] dark:bg-black text-white/80 text-sm">
+      <div className="max-w-7xl mx-auto 2xl:pt-16 pt-8 pb-8">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Logo + Description */}
           <div className="flex flex-col gap-6 max-w-lg">
