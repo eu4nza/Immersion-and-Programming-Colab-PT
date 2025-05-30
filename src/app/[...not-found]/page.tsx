@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,9 +7,21 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="h-screen pb-24 flex flex-col items-center justify-center font-semibold">
-      <p className="text-8xl">404</p>
-      <p className="text-4xl">Not Found</p>
+    <div className="dark:bg-[#191a1f] h-screen pb-24 flex flex-col gap-2 items-center justify-center">
+      <div className="flex flex-col items-center font-semibold">
+        <p className="2xl:text-8xl text-7xl">404</p>
+        <p className="2xl:text-4xl text-3xl">Not Found</p>
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="2xl:text-base text-xs">How did you get here?</p>
+        <div className="flex flex-row gap-1 2xl:text-base text-xs">
+          <p>Let's go to home?</p>
+          <Link href="/" className="text-blue-500 hover:underline">
+            Okay! :3
+          </Link>
+        </div>
+      </div>
+      <div className="2xl:h-[88px] h-[76px]" />
     </div>
   );
 }
