@@ -60,35 +60,36 @@ export default function ScopeSection() {
             </p>
           </div>
           <div className="flex flex-col gap-3 lg:text-lg 2xl:text-xl">
-            <div className="flex flex-row gap-2">
-              <ClipboardCheck />
+            <div className="flex flex-row gap-2 items-start">
+              <ClipboardCheck className="h-5 w-5 lg:h-6 lg:w-6 2xl:h-7 2xl:w-7 flex-shrink-0" />
               <p>
                 <b>Take the Assessment:</b> Answer a few simple questions to
                 find out which career paths align with your personality type.
               </p>
             </div>
-            <div className="flex flex-row gap-2">
-              <Compass />
+            <div className="flex flex-row gap-2 items-start">
+              <Compass className="h-5 w-5 lg:h-6 lg:w-6 2xl:h-7 2xl:w-7 flex-shrink-0" />
               <p>
-                <b>Explore Careers:</b> Learn about in-demand in the
+                <b>Explore Careers:</b> Learn about in-demand jobs in the
                 Philippines, along with the academic programs that lead to them.
               </p>
             </div>
-            <div className="flex flex-row gap-2">
-              <Wrench />
+            <div className="flex flex-row gap-2 items-start">
+              <Wrench className="h-5 w-5 lg:h-6 lg:w-6 2xl:h-7 2xl:w-7 flex-shrink-0" />
               <p>
                 <b>Career Toolbox:</b> Access helpful resources such as learning
                 style quizzes, life-balance tips, and preparation guides.
               </p>
             </div>
-            <div className="flex flex-row gap-2">
-              <Sparkles />
+            <div className="flex flex-row gap-2 items-start">
+              <Sparkles className="h-5 w-5 lg:h-6 lg:w-6 2xl:h-7 2xl:w-7 flex-shrink-0" />
               <p>
                 <b>Be Inspired:</b> Read real success stories from STI graduates
                 working in various industries.
               </p>
             </div>
           </div>
+
           <div className="flex justify-center py-6">
             <Link
               href="https://scope.sti.edu"
