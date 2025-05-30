@@ -3,42 +3,74 @@ import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 
 export function ToggleTheme() {
-  const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null); // null means not yet initialized
+  const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
+  const [hoverStyle, setHoverStyle] = useState({});
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [animate, setAnimate] = useState(false);
 
-  // Initialize theme from localStorage or system preference
-  useEffect(() => {
+  const handleMouseLeave = () => {
+    setHoverStyle((prev) => ({ ...prev, opacity: 0 }));
+    setHoveredIndex(null);
+  };
+
+  // Sync state with current theme
+  const syncTheme = () => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
-    setIsDarkMode(savedTheme === "dark" || (!savedTheme && prefersDark));
+
+    const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    setIsDarkMode(isDark);
+
+    document.documentElement.classList.toggle("dark", isDark);
+  };
+
+  // On mount: apply theme
+  useEffect(() => {
+    syncTheme();
+
+    // Listen to system theme changes
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleSystemChange = () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (!savedTheme) {
+        syncTheme(); // Only sync if no user preference
+      }
+    };
+    mediaQuery.addEventListener("change", handleSystemChange);
+
+    // Listen to localStorage changes (e.g. in other tabs)
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === "theme") {
+        syncTheme();
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleSystemChange);
+      window.removeEventListener("storage", handleStorage);
+    };
   }, []);
 
-  // Apply theme to document and persist it
-  useEffect(() => {
-    if (isDarkMode === null) return; // Skip until initialized
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDarkMode]);
-
+  // Handle manual toggle
   const toggleTheme = () => {
     setAnimate(true);
     setTimeout(() => setAnimate(false), 100);
-    setIsDarkMode((prev) => !prev);
+
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", newTheme);
   };
 
-  // Avoid showing incorrect icon until theme is determined
   if (isDarkMode === null) return null;
 
   return (
     <button
       onClick={toggleTheme}
+      onMouseEnter={handleMouseLeave}
       className={`
         w-8 rounded-full
         flex items-center justify-center
