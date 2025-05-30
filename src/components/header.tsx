@@ -15,6 +15,7 @@ export function Header() {
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const navRef = useRef<HTMLDivElement | null>(null);
+  const mobileNavRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -41,15 +42,18 @@ export function Header() {
     }
   };
 
-  const handleHover = (e: React.MouseEvent) => {
-    const navRect = navRef.current?.getBoundingClientRect();
+  const handleHover = (
+    e: React.MouseEvent,
+    containerRef: React.RefObject<HTMLElement | null> = navRef
+  ) => {
+    const containerRect = containerRef.current?.getBoundingClientRect();
     const target = e.currentTarget as HTMLElement;
     const targetRect = target.getBoundingClientRect();
 
-    if (navRect) {
+    if (containerRect) {
       setHoverStyle({
-        left: targetRect.left - navRect.left,
-        top: targetRect.top - navRect.top,
+        left: targetRect.left - containerRect.left,
+        top: targetRect.top - containerRect.top,
         width: targetRect.width,
         height: targetRect.height,
         opacity: 1,
@@ -185,10 +189,10 @@ export function Header() {
             setTimeout(() => setAnimate(false), 100);
             setIsOpen(!isOpen);
           }}
-          className="lg:hidden flex items-center"
+          className="lg:hidden flex items-center hover:scale-120 transition-transform cursor-pointer"
         >
           <div
-            className={`transition-transform duration-300 ease-in-out ${
+            className={`duration-300 ease-in-out ${
               animate ? "scale-50" : "scale-100"
             }`}
           >
@@ -217,9 +221,10 @@ export function Header() {
 
       {/* Mobile Menu Popup */}
       <div
+        ref={mobileNavRef}
         className={`
     lg:hidden fixed w-full z-40 bg-background dark:bg-[#191a1f] border-t border-border shadow-xl
-   transition-all duration-300 ease-in-out overflow-hidden
+    transition-all duration-300 ease-in-out overflow-hidden
     transform
     ${
       isOpen
@@ -228,17 +233,39 @@ export function Header() {
     }
   `}
         style={{ top: isScrolled ? "43px" : "67px" }}
+        onMouseLeave={handleMouseLeave}
       >
-        <div className="flex flex-col px-4 py-4 space-y-3">
-          {navItems.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleNavigation(item.id)}
-              className="text-left text-gray-500 dark:text-gray-400 text-base font-bold px-2 py-2 rounded-md"
-            >
-              {item.label}
-            </button>
-          ))}
+        <div className="relative flex flex-col px-4 py-4 space-y-3">
+          {/* Hover background */}
+          <div
+            className="absolute transition-all duration-300 pointer-events-none bg-gray-100 dark:bg-gray-800 rounded-md"
+            style={{
+              ...hoverStyle,
+              transitionProperty: "all",
+            }}
+          />
+          {navItems.map((item, index) => {
+            const isHovered = hoveredIndex === index;
+            const dimOthers = hoveredIndex !== null && !isHovered;
+
+            return (
+              <button
+                key={index}
+                onClick={() => handleNavigation(item.id)}
+                onMouseEnter={(e) => {
+                  handleHover(e, mobileNavRef);
+                  setHoveredIndex(index);
+                }}
+                className={`relative z-10 text-left text-base font-bold px-2 py-2 rounded-md transition-colors cursor-pointer ${
+                  dimOthers
+                    ? "text-gray-500/50"
+                    : "text-gray-500 dark:text-gray-400"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </div>
       </div>
     </>
