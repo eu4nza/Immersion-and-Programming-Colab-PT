@@ -30,17 +30,17 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="w-full 2xl:px-24 px-4 2xl:py-48 py-14 bg-[url('/images/home/home_mobile_background.webp')] 2xl:bg-[url('/images/home/home_desktop_background.webp')] bg-no-repeat bg-center lg:bg-top bg-cover transition-all duration-100"
+      className="w-full 2xl:px-24 px-4 2xl:py-48 xl:py-36 lg:py-24 py-14 bg-[url('/images/home/home_mobile_background.webp')] lg:bg-[url('/images/home/home_desktop_background.webp')] bg-no-repeat bg-center lg:bg-top bg-cover transition-all duration-100"
     >
       <div className="max-w-7xl mx-auto text-[#0072bc]">
         <div className="flex flex-col gap-4">
-          <p className="text-4xl lg:text-5xl 2xl:text-6xl font-bold">
+          <p className="2xl:text-6xl xl:text-5xl text-4xl font-bold">
             Welcome to the STI Career Compass
           </p>
-          <p className="text-xl md:text-2xl font-semibold text-black">
+          <p className="2xl:text-2xl xl:text-xl text-lg font-semibold text-black">
             Your guide to discovering the right path for your future.
           </p>
-          <p className="text-base md:text-lg max-w-2xl text-black">
+          <p className="2xl:text-lg xl:text-base text-sm 2xl:max-w-2xl max-w-xl text-black">
             Whether you’re exploring career options, preparing for your
             internship, or getting ready for your first job, this site will help
             you take the next step with confidence.
